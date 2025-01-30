@@ -8,17 +8,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4",
+    "@vercel/analytics": "latest",
     "@vueuse/core": "^10.3.0",
+    "aos": "^2.3.4",
     "gsap": "^3.12.2",
-    "aos": "^2.3.4"
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.1",
-    "vite": "^4.4.9",
-    "tailwindcss": "^3.3.3",
+    "autoprefixer": "^10.4.15",
     "postcss": "^8.4.27",
-    "autoprefixer": "^10.4.15"
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.9"
   }
 }
