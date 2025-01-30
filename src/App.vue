@@ -6,8 +6,36 @@
         Portfolio
       </div>
       
-      <!-- Navigation Links -->
-      <div class="flex space-x-6">
+      <!-- Mobile Menu Button -->
+      <button 
+        @click="isMenuOpen = !isMenuOpen"
+        class="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+      >
+        <svg 
+          class="w-6 h-6" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            v-if="!isMenuOpen" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+          <path 
+            v-else 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            stroke-width="2" 
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-6">
         <router-link 
           v-for="item in navItems" 
           :key="item.id"
@@ -16,6 +44,24 @@
         >
           {{ item.label }}
           <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+        </router-link>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div 
+      v-show="isMenuOpen"
+      class="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-b border-white/10"
+    >
+      <div class="container mx-auto py-4 px-4 space-y-2">
+        <router-link 
+          v-for="item in navItems" 
+          :key="item.id"
+          :to="{ name: item.id }"
+          class="block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15"
+          @click="isMenuOpen = false"
+        >
+          {{ item.label }}
         </router-link>
       </div>
     </div>
@@ -28,10 +74,14 @@
       </transition>
     </router-view>
   </main>
+  <TheFooter />
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import TheFooter from './components/TheFooter.vue'
+
+const isMenuOpen = ref(false)
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -40,6 +90,13 @@ const navItems = [
   { id: 'resume', label: 'Resume' },
   { id: 'contact', label: 'Contact' }
 ]
+
+// Close mobile menu when route changes
+import { useRouter } from 'vue-router'
+const router = useRouter()
+router.afterEach(() => {
+  isMenuOpen.value = false
+})
 
 // Add scroll spy to highlight active section in nav
 import { onMounted, onUnmounted } from 'vue'

@@ -11,10 +11,10 @@
         Get in Touch
       </h1>
       <p class="text-lg md:text-xl text-gray-600 text-center mb-12 animate-fade-in-delay-1 px-4 md:px-0">
-        Let's work together on something amazing
+        Let's collaborate on your next project
       </p>
       
-      <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 px-4 md:px-8">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         <!-- Contact Form -->
         <div class="contact-card glass-card p-6 md:p-8">
           <form 
@@ -45,6 +45,17 @@
             </div>
             
             <div class="form-group">
+              <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                class="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white/50 backdrop-blur-sm"
+                required
+              >
+            </div>
+            
+            <div class="form-group">
               <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
               <textarea
                 id="message"
@@ -64,10 +75,11 @@
           </form>
         </div>
 
-        <!-- Contact Info -->
-        <div class="space-y-6 md:space-y-8 animate-slide-in-right">
-          <div class="contact-card group p-6 md:p-8">
-            <h2 class="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+        <!-- Contact Info & Social Links -->
+        <div class="space-y-6">
+          <!-- Social Links -->
+          <div class="contact-card p-6 md:p-8">
+            <h2 class="text-2xl font-semibold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
               Connect With Me
             </h2>
             <div class="space-y-4">
@@ -76,28 +88,46 @@
                 <span class="text-2xl group-hover:scale-110 transition-transform">📧</span>
                 <span class="group-hover:translate-x-1 transition-transform">your.email@example.com</span>
               </a>
-              <a href="https://github.com/yourusername" 
+              
+              <a href="https://calendly.com/yourusername" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
-                <span class="text-2xl group-hover:scale-110 transition-transform">🐱</span>
-                <span class="group-hover:translate-x-1 transition-transform">GitHub</span>
+                <span class="text-2xl group-hover:scale-110 transition-transform">📅</span>
+                <span class="group-hover:translate-x-1 transition-transform">Schedule a Meeting</span>
               </a>
+              
               <a href="https://linkedin.com/in/yourusername" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">💼</span>
                 <span class="group-hover:translate-x-1 transition-transform">LinkedIn</span>
               </a>
+              
+              <a href="https://github.com/yourusername" 
+                 target="_blank"
+                 class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
+                <span class="text-2xl group-hover:scale-110 transition-transform">🐱</span>
+                <span class="group-hover:translate-x-1 transition-transform">GitHub</span>
+              </a>
+              
+              <a href="https://twitter.com/yourusername" 
+                 target="_blank"
+                 class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
+                <span class="text-2xl group-hover:scale-110 transition-transform">🐦</span>
+                <span class="group-hover:translate-x-1 transition-transform">Twitter</span>
+              </a>
             </div>
           </div>
 
+          <!-- Location -->
           <div class="contact-card p-6 md:p-8">
             <h2 class="text-2xl font-semibold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600">
               Location
             </h2>
             <p class="text-gray-600">
               Based in San Francisco, CA<br>
-              Available for remote work worldwide
+              Available for remote work worldwide<br>
+              <span class="text-sm text-gray-500">UTC-8 (Pacific Time)</span>
             </p>
           </div>
         </div>
