@@ -7,6 +7,20 @@
   @apply text-white bg-white/15 font-semibold;
 }
 
+.router-link-exact-active {
+  @apply text-white bg-white/15 font-semibold;
+}
+
+/* Special case for portfolio link */
+.portfolio-link.router-link-active,
+.portfolio-link.router-link-exact-active {
+  background: transparent;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #60a5fa, #a78bfa);
+}
+
 body {
   @apply bg-gray-50 text-gray-900;
 }

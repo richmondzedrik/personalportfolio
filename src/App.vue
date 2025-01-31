@@ -3,7 +3,13 @@
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-        Portfolio
+        <router-link 
+          to="/" 
+          class="transition-transform duration-300 hover:scale-105 inline-block portfolio-link"
+          :class="{ 'router-link-exact-active': $route.path === '/' }"
+        >
+          Portfolio
+        </router-link>
       </div>
       
       <!-- Mobile Menu Button -->

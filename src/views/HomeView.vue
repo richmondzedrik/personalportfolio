@@ -77,7 +77,7 @@
     <section class="py-20 relative overflow-hidden">
       <div class="container mx-auto px-4">
         <!-- Brief Introduction -->
-        <div class="max-w-4xl mx-auto text-center mb-16">
+        <div class="max-w-4xl mx-auto text-center mb-16 fade-in-scroll">
           <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
             Building Digital Experiences
           </h2>
@@ -91,7 +91,8 @@
         <!-- Skills Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           <div v-for="skill in skills" :key="skill.name" 
-               class="bg-white rounded-xl shadow-lg p-6 hover-lift">
+               class="bg-white rounded-xl shadow-lg p-6 hover-lift fade-in-scroll"
+               :style="{ transitionDelay: `${index * 150}ms` }">
             <div class="text-4xl mb-4 transform transition-transform hover:scale-110 duration-200">{{ skill.icon }}</div>
             <h3 class="text-xl font-semibold mb-2 text-gray-800">{{ skill.name }}</h3>
             <p class="text-gray-600">{{ skill.description }}</p>
@@ -106,7 +107,7 @@
         </div>
 
         <!-- Technologies -->
-        <div class="mt-20 max-w-4xl mx-auto">
+        <div class="mt-20 max-w-4xl mx-auto fade-in-scroll">
           <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Technologies I Work With</h2>
           <div class="flex flex-wrap justify-center gap-4">
             <div v-for="tech in technologies" :key="tech.name"
@@ -212,21 +213,32 @@ const technologies = ref([
 ])
 
 onMounted(() => {
+  // Skill bars animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const bar = entry.target;
-        const width = bar.getAttribute('data-width');
-        requestAnimationFrame(() => {
-          bar.style.width = `${width}%`;
-        });
+        if (entry.target.hasAttribute('data-width')) {
+          // Handle skill bars
+          const width = entry.target.getAttribute('data-width');
+          requestAnimationFrame(() => {
+            entry.target.style.width = `${width}%`;
+          });
+        } else {
+          // Handle scroll animations
+          entry.target.classList.add('visible');
+        }
       }
     });
-  }, { threshold: 0.5 });
+  }, { threshold: 0.2 });
 
   // Observe skill bars
   document.querySelectorAll('[data-width]').forEach(bar => {
     observer.observe(bar);
+  });
+
+  // Observe scroll animation elements
+  document.querySelectorAll('.fade-in-scroll, .slide-in-left-scroll, .slide-in-right-scroll').forEach(element => {
+    observer.observe(element);
   });
 })
 </script>
@@ -332,5 +344,39 @@ onMounted(() => {
 h1.text-transparent {
   background-size: 200% auto;
   animation: gradient 8s ease infinite;
+}
+
+/* Scroll animations */
+.fade-in-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left-scroll {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left-scroll.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right-scroll {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right-scroll.visible {
+  opacity: 1;
+  transform: translateX(0);
 }
 </style>
