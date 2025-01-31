@@ -65,78 +65,50 @@ const services = ref([
       'SEO Optimization',
       'Maintenance & Support'
     ],
-    pricing: 'From $2,000',
-    pricingDetails: 'Project-based pricing',
-    tiers: [
-      {
-        name: 'Basic',
-        price: '$2,000',
-        duration: '2-3 weeks',
-        included: ['Single Page Website', 'Mobile Responsive', 'Basic SEO', '2 Revisions']
-      },
-      {
-        name: 'Professional',
-        price: '$5,000',
-        duration: '4-6 weeks',
-        included: ['Multi-page Website', 'CMS Integration', 'Advanced SEO', 'Unlimited Revisions']
-      }
-    ]
+    pricing: 'Starting at ₱20,000',
+    pricingDetails: 'Project-based pricing'
   },
   {
-    title: 'UI/UX Design',
-    icon: '🎨',
-    description: 'Beautiful and intuitive user interfaces',
+    title: 'Full Stack Development',
+    icon: '⚡',
+    description: 'End-to-end application development with modern tech stack',
     features: [
-      'User Research',
-      'Wireframing',
-      'Prototyping',
-      'Visual Design',
-      'User Testing',
-      'Design Systems'
+      'Frontend Development',
+      'Backend Architecture',
+      'Database Design',
+      'API Development',
+      'Cloud Deployment',
+      'Security Implementation'
     ],
-    pricing: 'From $1,500',
-    pricingDetails: 'Per design project',
-    tiers: [
-      {
-        name: 'Essential',
-        price: '$1,500',
-        duration: '1-2 weeks',
-        included: ['3 Page Designs', 'Basic Prototype', '2 Revisions', 'Source Files']
-      },
-      {
-        name: 'Complete',
-        price: '$3,000',
-        duration: '2-4 weeks',
-        included: ['Full Website Design', 'Interactive Prototype', 'Unlimited Revisions', 'Design System']
-      }
-    ]
+    pricing: 'Starting at ₱40,000',
+    pricingDetails: 'Based on project scope'
   },
   {
-    title: 'Technical Consulting',
-    icon: '🤝',
-    description: 'Expert guidance for your technical projects',
+    title: 'Programming Tutor',
+    icon: '👨‍🏫',
+    description: 'Personalized programming education and mentorship',
     features: [
-      'Architecture Planning',
-      'Technology Selection',
-      'Code Review',
-      'Performance Audits',
-      'Security Assessment',
-      'Team Training'
+      'One-on-One Sessions',
+      'Custom Learning Plans',
+      'Practical Projects',
+      'Code Reviews',
+      'Interview Preparation',
+      'Career Guidance'
     ],
-    pricing: '$150/hour',
-    pricingDetails: 'Flexible engagement options',
+    pricing: '₱500/hour',
+    pricingDetails: 'Flexible scheduling options',
     tiers: [
       {
-        name: 'Hourly',
-        price: '$150/hour',
+        name: 'Single Session',
+        price: '₱500/hour',
         duration: 'As needed',
-        included: ['Direct Consultation', 'Technical Documentation', 'Implementation Guidance']
+        included: ['One-on-One Instruction', 'Practice Exercises', 'Code Review']
       },
       {
-        name: 'Retainer',
-        price: '$2,000/month',
+        name: 'Monthly Package',
+        price: '₱4,000/month',
         duration: 'Monthly',
-        included: ['15 Hours/Month', 'Priority Support', 'Monthly Reports', 'Emergency Assistance']
+        included: ['10 Hours/Month', 'Weekly Assignments', 'Project Mentoring', 'Email Support']
       }
     ]
   }

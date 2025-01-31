@@ -89,11 +89,11 @@ import { ref } from 'vue'
 const projects = ref([
   {
     id: 1,
-    title: 'Disaster App',
-    description: 'A comprehensive disaster management application providing real-time updates, emergency resources, and safety information during natural disasters.',
+    title: 'AlertoAbra',
+    description: 'A comprehensive disaster management application for Abra province providing real-time updates, emergency resources, and safety information during natural disasters.',
     image: 'https://via.placeholder.com/600x400',
     github: 'https://github.com/richmondzedrik/disaster_app',
-    demo: 'https://disasterapp.netlify.app/',
+    demo: 'https://alertoabra.netlify.app/',
     technologies: ['Vue.js', 'Tailwind CSS', 'Netlify']
   },
   {

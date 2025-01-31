@@ -14,11 +14,16 @@
 /* Special case for portfolio link */
 .portfolio-link.router-link-active,
 .portfolio-link.router-link-exact-active {
-  background: transparent;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  background-image: linear-gradient(to right, #60a5fa, #a78bfa);
+  background: transparent !important;
+  color: white;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}
+
+/* Remove white background for all portfolio link states */
+.portfolio-link {
+  background: transparent !important;
+  color: white;
 }
 
 body {
