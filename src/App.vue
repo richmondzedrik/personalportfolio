@@ -45,7 +45,7 @@
         <router-link 
           v-for="item in navItems" 
           :key="item.id"
-          :to="{ name: item.id }"
+          :to="item.path"
           class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15 relative group"
         >
           {{ item.label }}
@@ -63,7 +63,7 @@
         <router-link 
           v-for="item in navItems" 
           :key="item.id"
-          :to="{ name: item.id }"
+          :to="item.path"
           class="block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15"
           @click="isMenuOpen = false"
         >
@@ -90,11 +90,12 @@ import TheFooter from './components/TheFooter.vue'
 const isMenuOpen = ref(false)
 
 const navItems = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'resume', label: 'Resume' },
-  { id: 'contact', label: 'Contact' }
+  { id: 'home', label: 'Home', path: '/' },
+  { id: 'about', label: 'About', path: '/about' },
+  { id: 'projects', label: 'Projects', path: '/projects' },
+  { id: 'services', label: 'Services', path: '/services' },
+  { id: 'resume', label: 'Resume', path: '/resume' },
+  { id: 'contact', label: 'Contact', path: '/contact' }
 ]
 
 // Close mobile menu when route changes
