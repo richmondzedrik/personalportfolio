@@ -32,8 +32,8 @@
               <li class="flex items-start gap-4">
                 <span class="text-2xl">🎓</span>
                 <div>
-                  <h3 class="font-semibold text-gray-800">Bachelor of Science in Computer Science</h3>
-                  <p class="text-gray-600">University Name, 2018-2022</p>
+                  <h3 class="font-semibold text-gray-800">Bachelor of Science in Information Technology</h3>
+                  <p class="text-gray-600">Data Center College of the Philippines, 2018-2022</p>
                 </div>
               </li>
               <li class="flex items-start gap-4">
