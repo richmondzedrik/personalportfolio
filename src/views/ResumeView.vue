@@ -9,9 +9,10 @@
           </span>
         </h1>
         <p class="text-lg text-gray-600 mb-8">My professional journey and achievements</p>
-        <a 
-          href="/path-to-your-resume.pdf" 
+        <a  
+          href="/assets/resume.pdf" 
           target="_blank"
+          download="Richmond_Zedrik_Resume.pdf"
           class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
         >
           <span>Download Resume</span>
