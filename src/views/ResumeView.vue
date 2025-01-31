@@ -96,33 +96,46 @@ import { ref } from 'vue'
 
 const workExperience = ref([
   {
-    title: 'Senior Full Stack Developer',
-    company: 'Tech Company Inc.',
-    period: '2020 - Present',
+    title: 'IT Instructor',
+    company: 'Data Center College of the Philippines',
+    period: '2023 - 2024',
     achievements: [
-      'Led development of cloud-based enterprise application',
-      'Managed team of 5 developers',
-      'Improved system performance by 40%'
+      'Achieving exceptional student engagement and fostering a dynamic learning environment.',
+      'Developing and delivering cutting-edge IT curriculum, ensuring relevance to industry trends',
+      'Championing the development of future programmers by imparting advanced coding skills.',
+      'Mentoring students in project-based learning, enhancing their practical skills and real-world experience.',
+      'Nurturing critical thinking and problem-solving abilities through hands-on coding challenges.'
     ]
   },
   {
-    title: 'Full Stack Developer',
-    company: 'Digital Solutions Ltd.',
-    period: '2018 - 2020',
+    title: 'Registration Kit Operator',
+    company: 'Philippine Statistic Authority',
+    period: '2022 - 2022',
     achievements: [
-      'Developed and maintained multiple client websites',
-      'Implemented CI/CD pipeline',
-      'Reduced loading time by 60%'
+      'Serves as Data Capture Operator for Fixed and Mobile Registration Centers',
+      'Provides exceptional customer service to all the applicants  ',
+      'Maintains and exports daily captured data.'
+    ]
+  },
+  {
+    title: 'Freelance Full Stack Developer',
+    company: 'Self-Employed',
+    period: '2021 - Present',
+    achievements: [
+      'Developed and deployed custom web applications for various clients using Vue.js, React, and Node.js',
+      'Implemented responsive designs and modern UI/UX practices to enhance user experience',
+      'Collaborated with clients to gather requirements and deliver solutions that exceeded expectations',
+      'Maintained ongoing relationships with clients providing technical support and updates'
     ]
   }
 ])
 
 const education = ref([
   {
-    degree: 'Bachelor of Science in Computer Science',
-    school: 'University Name',
-    period: '2014 - 2018',
-    description: 'Focus on Software Engineering and Web Technologies'
+    degree: 'Bachelor of Science in Information Technology',
+    school: 'Data Center College of the Philippines',
+    period: '2019 - 2022',
+    description: 'Thesis Leader and Programmer (POS System with using C# and SQLServer)'
   }
 ])
 

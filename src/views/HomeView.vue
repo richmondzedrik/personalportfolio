@@ -14,12 +14,15 @@
             <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl rotate-6"></div>
             <div class="absolute inset-0 bg-white rounded-3xl">
               <img 
-                src="https://res.cloudinary.com/dmgivh17b/image/upload/v1738254858/portfolio/ws8xqsxsfvyyfjckuihb.jpg" 
+                src="https://res.cloudinary.com/dmgivh17b/image/upload/q_auto,f_auto,w_400/v1738254858/portfolio/ws8xqsxsfvyyfjckuihb.jpg" 
                 alt="Profile"
                 class="w-full h-full object-cover rounded-3xl shadow-lg"
                 loading="lazy"
                 decoding="async"
-                onerror="this.src='https://via.placeholder.com/400x400?text=Your+Photo'"
+                width="400"
+                height="400"
+                fetchpriority="high"
+                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23f3f4f6\'/%3E%3C/svg%3E'"
               >
             </div>
           </div>

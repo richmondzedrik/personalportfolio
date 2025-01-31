@@ -86,31 +86,31 @@
               <a href="mailto:your.email@example.com" 
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">📧</span>
-                <span class="group-hover:translate-x-1 transition-transform">your.email@example.com</span>
+                <span class="group-hover:translate-x-1 transition-transform">richmondzedrik@gmail.com</span>
               </a>
               
-              <a href="https://calendly.com/yourusername" 
+              <a href="https://calendly.com/richmondzedrik/30min" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">📅</span>
                 <span class="group-hover:translate-x-1 transition-transform">Schedule a Meeting</span>
               </a>
               
-              <a href="https://linkedin.com/in/yourusername" 
+              <a href="www.linkedin.com/in/richmond-zedrik-aspacio-342163173" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">💼</span>
                 <span class="group-hover:translate-x-1 transition-transform">LinkedIn</span>
               </a>
               
-              <a href="https://github.com/yourusername" 
+              <a href="https://github.com/richmondzedrik" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">🐱</span>
                 <span class="group-hover:translate-x-1 transition-transform">GitHub</span>
               </a>
               
-              <a href="https://twitter.com/yourusername" 
+              <a href="https://twitter.com/richmondaspacio" 
                  target="_blank"
                  class="flex items-center gap-3 text-gray-600 hover:text-blue-600 transition-colors group">
                 <span class="text-2xl group-hover:scale-110 transition-transform">🐦</span>
@@ -125,9 +125,9 @@
               Location
             </h2>
             <p class="text-gray-600">
-              Based in San Francisco, CA<br>
+              Based in Bangued, Abra Philippines<br>
               Available for remote work worldwide<br>
-              <span class="text-sm text-gray-500">UTC-8 (Pacific Time)</span>
+              <span class="text-sm text-gray-500">UTC+8 (Pacific Time)</span>
             </p>
           </div>
         </div>
