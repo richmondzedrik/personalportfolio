@@ -4,6 +4,11 @@ import router from './router'
 import './assets/main.css'
 import { inject } from '@vercel/analytics'
 
+// Force HTTPS in production
+if (process.env.NODE_ENV === 'production' && location.protocol !== 'https:') {
+  location.replace(`https:${location.href.substring(location.protocol.length)}`)
+}
+
 // Create app instance
 const app = createApp(App)
 

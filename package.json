@@ -5,21 +5,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "audit": "npm audit fix"
   },
   "dependencies": {
-    "@vercel/analytics": "latest",
-    "@vueuse/core": "^10.3.0",
-    "aos": "^2.3.4",
-    "gsap": "^3.12.2",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "@vercel/analytics": "^1.1.1",
+    "@vueuse/core": "^10.7.0",
+    "aos": "^3.0.0-beta.6",
+    "gsap": "^3.12.4",
+    "vue": "^3.3.13",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.1",
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.9"
+    "@vitejs/plugin-vue": "^4.5.2",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6",
+    "vite": "^5.0.10"
   }
 }

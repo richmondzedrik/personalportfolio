@@ -18,10 +18,19 @@
         <!-- Contact Form -->
         <div class="contact-card glass-card p-6 md:p-8">
           <form 
-            action="https://formspree.io/f/your-form-id"
+            action="https://formspree.io/f/xqaebpln"
             method="POST"
             class="space-y-4 md:space-y-6"
+            @submit="handleSubmit"
           >
+            <!-- Add honeypot field -->
+            <div class="hidden">
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+            </div>
+            
+            <!-- Add CSRF token -->
+            <input type="hidden" name="_csrf" :value="csrfToken">
+            
             <div class="form-group">
               <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
               <input
@@ -66,11 +75,19 @@
               ></textarea>
             </div>
             
+            <!-- Add reCAPTCHA -->
+            <div 
+              class="g-recaptcha mb-4" 
+              data-sitekey="6LfW-8gqAAAAAENUJBF0AG12_K9lfC_qZ-1OfR5k"
+              data-theme="light"
+            ></div>
+            
             <button
               type="submit"
+              :disabled="isSubmitting"
               class="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300"
             >
-              Send Message
+              {{ isSubmitting ? 'Sending...' : 'Send Message' }}
             </button>
           </form>
         </div>
@@ -135,6 +152,70 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const isSubmitting = ref(false)
+const csrfToken = ref('')
+const recaptchaVerified = ref(false)
+
+// Generate CSRF token
+function generateCSRFToken() {
+  return Math.random().toString(36).substring(2, 15)
+}
+
+// Handle form submission
+async function handleSubmit(e) {
+  e.preventDefault()
+  
+  const recaptchaResponse = grecaptcha.getResponse()
+  if (!recaptchaResponse) {
+    alert('Please complete the reCAPTCHA')
+    return
+  }
+  
+  isSubmitting.value = true
+  
+  try {
+    const form = e.target
+    const formData = new FormData(form)
+    formData.append('g-recaptcha-response', recaptchaResponse)
+    
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    
+    if (response.ok) {
+      form.reset()
+      alert('Message sent successfully!')
+      grecaptcha.reset()
+    } else {
+      throw new Error('Failed to send message')
+    }
+  } catch (error) {
+    alert('Failed to send message. Please try again later.')
+  } finally {
+    isSubmitting.value = false
+  }
+}
+
+onMounted(() => {
+  // Generate CSRF token
+  csrfToken.value = generateCSRFToken()
+  
+  // Load reCAPTCHA script
+  const script = document.createElement('script')
+  script.src = 'https://www.google.com/recaptcha/api.js'
+  script.async = true
+  script.defer = true
+  document.head.appendChild(script)
+})
+</script>
 
 <style scoped>
 .form-group {
