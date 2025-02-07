@@ -65,7 +65,7 @@ const services = ref([
       'SEO Optimization',
       'Maintenance & Support'
     ],
-    pricing: 'Starting at ₱20,000',
+    pricing: 'Starting at ₱15,000',
     pricingDetails: 'Project-based pricing'
   },
   {
@@ -80,7 +80,7 @@ const services = ref([
       'Cloud Deployment',
       'Security Implementation'
     ],
-    pricing: 'Starting at ₱40,000',
+    pricing: 'Starting at ₱30,000',
     pricingDetails: 'Based on project scope'
   },
   {
@@ -88,14 +88,14 @@ const services = ref([
     icon: '👨‍🏫',
     description: 'Personalized programming education and mentorship',
     features: [
-      'One-on-One Sessions',
+      'One-on-One Sessions via Zoom',
       'Custom Learning Plans',
       'Practical Projects',
       'Code Reviews',
       'Interview Preparation',
       'Career Guidance'
     ],
-    pricing: '₱500/hour',
+    pricing: '₱300/hour',
     pricingDetails: 'Flexible scheduling options',
     tiers: [
       {
