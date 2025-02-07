@@ -90,8 +90,8 @@
 
         <!-- Skills Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div v-for="skill in skills" :key="skill.name" 
-               class="bg-white rounded-xl shadow-lg p-6 hover-lift fade-in-scroll"
+          <div v-for="(skill, index) in skills" :key="skill.name" 
+               class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl fade-in-scroll"
                :style="{ transitionDelay: `${index * 150}ms` }">
             <div class="text-4xl mb-4 transform transition-transform hover:scale-110 duration-200">{{ skill.icon }}</div>
             <h3 class="text-xl font-semibold mb-2 text-gray-800">{{ skill.name }}</h3>
@@ -111,9 +111,9 @@
           <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Technologies I Work With</h2>
           <div class="flex flex-wrap justify-center gap-4">
             <div v-for="tech in technologies" :key="tech.name"
-                 class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md hover-lift">
+                 class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md hover:scale-105 hover:shadow-lg transform transition-all duration-300 group cursor-pointer">
               <span class="text-2xl transform transition-transform group-hover:scale-110 duration-200">{{ tech.icon }}</span>
-              <span class="text-gray-700">{{ tech.name }}</span>
+              <span class="text-gray-700 group-hover:text-blue-600 transition-colors">{{ tech.name }}</span>
             </div>
           </div>
         </div>
@@ -167,6 +167,17 @@
         </div>
       </div>
     </section>
+
+    <!-- Add before closing main tag -->
+    <button 
+      @click="scrollToTop"
+      class="fixed bottom-8 right-8 p-3 rounded-full bg-gray-900 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl opacity-0"
+      :class="{ 'opacity-100': showScrollTop }"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      </svg>
+    </button>
   </main>
 </template>
 
@@ -211,6 +222,20 @@ const technologies = ref([
   { name: 'Docker', icon: '🐋' },
   { name: 'Git', icon: '📦' }
 ])
+
+const showScrollTop = ref(false)
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
+}
+
+// Add to existing onMounted:
+window.addEventListener('scroll', () => {
+  showScrollTop.value = window.scrollY > 500
+})
 
 onMounted(() => {
   // Skill bars animation
@@ -350,7 +375,7 @@ h1.text-transparent {
 .fade-in-scroll {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .fade-in-scroll.visible {
@@ -378,5 +403,10 @@ h1.text-transparent {
 .slide-in-right-scroll.visible {
   opacity: 1;
   transform: translateX(0);
+}
+
+/* Smooth transition for scroll button */
+.fixed {
+  transition: opacity 0.3s ease-in-out;
 }
 </style>

@@ -2,13 +2,16 @@
   <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 text-white p-4 z-50 backdrop-blur-lg border-b border-white/10">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
-      <div class="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+      <div class="flex items-center">
         <router-link 
           to="/" 
-          class="transition-transform duration-300 hover:scale-105 inline-block portfolio-link"
-          :class="{ 'router-link-exact-active': $route.path === '/' }"
+          class="transition-transform duration-300 hover:scale-105"
         >
-          Portfolio
+          <img 
+            src="https://res.cloudinary.com/dmgivh17b/image/upload/v1738947903/portfolio/jv7u26yrdgr7hgwujxxb.png"
+            alt="Logo"
+            class="w-10 h-10 object-contain"
+          />
         </router-link>
       </div>
       
