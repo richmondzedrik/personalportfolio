@@ -1,377 +1,212 @@
 <template>
-  <main class="min-h-screen bg-white">
+  <main>
     <!-- Hero Section -->
-    <section class="relative min-h-[60vh] md:min-h-screen flex items-center justify-center px-4 py-8 md:py-0">
-      <!-- Subtle background pattern -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        <div class="absolute w-full h-full bg-[radial-gradient(circle,rgba(120,119,198,0.1)_1px,transparent_1px)] [background-size:24px_24px]"></div>
-      </div>
-      
-      <div class="relative z-10 max-w-4xl mx-auto">
-        <div class="flex flex-col items-center md:flex-row md:items-start gap-12">
-          <!-- Profile Image -->
-          <div class="relative w-48 h-48 md:w-64 md:h-64 animate-scale-in opacity-0">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl rotate-6"></div>
-            <div class="absolute inset-0 bg-white rounded-3xl">
-              <img 
-                src="https://res.cloudinary.com/dmgivh17b/image/upload/q_auto,f_auto,w_400/v1738254858/portfolio/ws8xqsxsfvyyfjckuihb.jpg" 
-                alt="Profile"
-                class="w-full h-full object-cover rounded-3xl shadow-lg"
-                loading="lazy"
-                decoding="async"
-                width="400"
-                height="400"
-                fetchpriority="high"
-                onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'400\' viewBox=\'0 0 400 400\'%3E%3Crect width=\'400\' height=\'400\' fill=\'%23f3f4f6\'/%3E%3C/svg%3E'"
-              >
-            </div>
-          </div>
-
-          <!-- Content -->
-          <div class="text-center md:text-left space-y-8">
-            <div class="space-y-3">
-              <span class="inline-block text-sm uppercase tracking-wider text-blue-600 font-medium bg-blue-50 px-3 py-1 rounded-full animate-fade-up opacity-0">
-                Welcome, I am
-              </span>
-              <h1 class="text-4xl md:text-7xl font-bold text-gray-900 animate-fade-up opacity-0 delay-100 leading-tight">
-                Richmond Zedrik
-                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 animate-fade-up opacity-0 delay-200">
-                  S. Aspacio
-                </span>
-              </h1>
-              <p class="text-xl md:text-2xl text-gray-600 mt-4 animate-fade-up opacity-0 delay-300 max-w-2xl">
-                Full Stack Developer crafting elegant digital experiences
-              </p>
-            </div>
-
-            <!-- Button group with enhanced visibility -->
-            <div class="flex flex-wrap gap-6 justify-center md:justify-start animate-fade-up opacity-0 delay-400">
-              <router-link
-                to="/projects"
-                class="group px-8 py-4 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-lg font-medium">
-                <span class="flex items-center gap-3">
-                  View Work
-                  <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </span>
-              </router-link>
-
-              <router-link
-                to="/contact"
-                class="group px-8 py-4 border-2 border-gray-200 text-gray-800 rounded-xl hover:border-gray-900 hover:text-gray-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl text-lg font-medium">
-                <span class="flex items-center gap-3">
-                  Contact Me
-                  <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </span>
-              </router-link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills & Introduction Section -->
-    <section class="py-20 relative overflow-hidden">
+    <section class="min-h-screen flex items-center bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div class="container mx-auto px-4">
-        <!-- Brief Introduction -->
-        <div class="max-w-4xl mx-auto text-center mb-16 fade-in-scroll">
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-            Building Digital Experiences
-          </h2>
-          <p class="text-lg text-gray-600 leading-relaxed">
-            With over 5 years of experience in full-stack development, I specialize in creating 
-            modern web applications that combine beautiful design with efficient functionality. 
-            My approach focuses on delivering scalable solutions that drive business growth.
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-5xl md:text-7xl font-bold mb-6 fade-in-scroll">
+            Hi, I'm Richmond Zedrik
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-300 mb-12 fade-in-scroll">
+            Full Stack Developer & IT Instructor
           </p>
+          <div class="flex flex-wrap justify-center gap-4 mb-12 fade-in-scroll">
+            <router-link
+              to="/projects"
+              class="px-8 py-3 bg-blue-600 hover:bg-blue-700 rounded-xl transition-colors"
+            >
+              View My Work
+            </router-link>
+            <router-link
+              to="/contact"
+              class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-xl transition-colors"
+            >
+              Get in Touch
+            </router-link>
+          </div>
+          <div class="flex justify-center gap-6 fade-in-scroll">
+            <a
+              v-for="social in socials"
+              :key="social.name"
+              :href="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-400 hover:text-white transition-colors"
+              :aria-label="social.name"
+            >
+              <component :is="social.icon" class="w-6 h-6" />
+            </a>
+          </div>
         </div>
+      </div>
+    </section>
 
-        <!-- Skills Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          <div v-for="(skill, index) in skills" :key="skill.name" 
-               class="bg-white rounded-xl shadow-lg p-6 hover:scale-105 transition-all duration-300 hover:shadow-xl fade-in-scroll"
-               :style="{ transitionDelay: `${index * 150}ms` }">
-            <div class="text-4xl mb-4 transform transition-transform hover:scale-110 duration-200">{{ skill.icon }}</div>
-            <h3 class="text-xl font-semibold mb-2 text-gray-800">{{ skill.name }}</h3>
+    <!-- Featured Projects -->
+    <section class="py-20 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">Featured Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <article
+            v-for="project in featuredProjects"
+            :key="project.id"
+            class="group bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:-translate-y-2 hover:shadow-xl fade-in-scroll"
+          >
+            <div class="relative aspect-video overflow-hidden">
+              <img
+                :src="project.image"
+                :alt="project.title"
+                class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">{{ project.title }}</h3>
+              <p class="text-gray-600 mb-4">{{ project.description }}</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  v-for="tech in project.technologies"
+                  :key="tech"
+                  class="px-2 py-1 bg-gray-100 text-gray-600 rounded-full text-sm"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+              <div class="flex gap-4">
+                <a
+                  v-if="project.demo"
+                  :href="project.demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 hover:text-blue-700 transition-colors"
+                >
+                  Live Demo
+                </a>
+                <a
+                  v-if="project.github"
+                  :href="project.github"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-gray-600 hover:text-gray-700 transition-colors"
+                >
+                  Source Code
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="text-center mt-12 fade-in-scroll">
+          <router-link
+            to="/projects"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-gray-800 transition-colors"
+          >
+            View All Projects
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </router-link>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Overview -->
+    <section class="py-20 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12 fade-in-scroll">My Expertise</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div
+            v-for="skill in skills"
+            :key="skill.title"
+            class="bg-white p-6 rounded-xl shadow-lg fade-in-scroll"
+          >
+            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+              <component :is="skill.icon" class="w-6 h-6 text-blue-600" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">{{ skill.title }}</h3>
             <p class="text-gray-600">{{ skill.description }}</p>
-            <div class="mt-4 w-full bg-gray-200 rounded-full h-2 overflow-hidden">
-              <div class="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full transition-all duration-700"
-                   :style="{ width: '0%' }"
-                   :data-width="skill.level"
-                   ref="skillBar">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technologies -->
-        <div class="mt-20 max-w-4xl mx-auto fade-in-scroll">
-          <h2 class="text-2xl font-bold text-center mb-8 text-gray-800">Technologies I Work With</h2>
-          <div class="flex flex-wrap justify-center gap-4">
-            <div v-for="tech in technologies" :key="tech.name"
-                 class="flex items-center gap-2 px-4 py-2 bg-white rounded-lg shadow-md hover:scale-105 hover:shadow-lg transform transition-all duration-300 group cursor-pointer">
-              <span class="text-2xl transform transition-transform group-hover:scale-110 duration-200">{{ tech.icon }}</span>
-              <span class="text-gray-700 group-hover:text-blue-600 transition-colors">{{ tech.name }}</span>
-            </div>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="relative py-20 overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100"></div>
-      <div class="container mx-auto px-4 relative">
-        <div class="max-w-5xl mx-auto">
-          <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12 relative overflow-hidden">
-            <!-- Background decoration -->
-            <div class="absolute inset-0 opacity-10">
-              <div class="absolute -top-1/2 -right-1/2 w-full h-full bg-gradient-to-br from-blue-600 to-purple-600 rounded-full transform rotate-45"></div>
-              <div class="absolute -bottom-1/2 -left-1/2 w-full h-full bg-gradient-to-tr from-blue-600 to-purple-600 rounded-full"></div>
-            </div>
-            
-            <div class="relative z-10">
-              <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                <div class="text-center md:text-left">
-                  <h2 class="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
-                    Ready to Start a Project?
-                  </h2>
-                  <p class="text-gray-600 text-lg mb-0 md:max-w-xl">
-                    Let's collaborate to bring your ideas to life with modern web technologies and creative solutions.
-                  </p>
-                </div>
-                <div class="flex flex-col sm:flex-row gap-4">
-                  <router-link
-                    to="/contact"
-                    class="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-lg">
-                    <span class="relative flex items-center justify-center gap-2">
-                      Get Started
-                      <svg class="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                    </span>
-                  </router-link>
-                  <router-link
-                    to="/projects"
-                    class="group px-8 py-4 border-2 border-gray-200 text-gray-600 rounded-xl hover:border-blue-600 hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
-                    <span class="flex items-center justify-center gap-2">
-                      View Projects
-                    </span>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Add before closing main tag -->
-    <button 
-      @click="scrollToTop"
-      class="fixed bottom-8 right-8 p-3 rounded-full bg-gray-900 text-white shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-xl opacity-0"
-      :class="{ 'opacity-100': showScrollTop }"
-    >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-      </svg>
-    </button>
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useSeo } from '../composables/useSeo'
 
-const skills = ref([
+const socials = [
   {
-    name: 'Vue.js',
-    icon: '⚡',
-    level: 90,
-    description: 'Building reactive web applications'
+    name: 'GitHub',
+    url: 'https://github.com/richmondzedrik',
+    icon: 'GithubIcon'
   },
   {
-    name: 'JavaScript',
-    icon: '🚀',
-    level: 85,
-    description: 'Modern ES6+ development'
+    name: 'LinkedIn',
+    url: 'https://linkedin.com/in/richmond-zedrik',
+    icon: 'LinkedinIcon'
   },
   {
-    name: 'Node.js',
-    icon: '🛠️',
-    level: 80,
-    description: 'Backend development & APIs'
-  },
-  {
-    name: 'UI/UX',
-    icon: '🎨',
-    level: 75,
-    description: 'Creating beautiful interfaces'
+    name: 'Twitter',
+    url: 'https://twitter.com/richmond_zedrik',
+    icon: 'TwitterIcon'
   }
-])
+]
 
-const technologies = ref([
-  { name: 'React', icon: '⚛️' },
-  { name: 'Vue', icon: '💚' },
-  { name: 'Node.js', icon: '🟢' },
-  { name: 'Python', icon: '🐍' },
-  { name: 'TypeScript', icon: '📘' },
-  { name: 'MongoDB', icon: '🍃' },
-  { name: 'AWS', icon: '☁️' },
-  { name: 'Docker', icon: '🐋' },
-  { name: 'Git', icon: '📦' }
-])
+const featuredProjects = [
+  {
+    id: 1,
+    title: 'Personal Portfolio',
+    description: 'Modern portfolio website built with Vue 3 and Tailwind CSS',
+    image: 'https://via.placeholder.com/800x600',
+    technologies: ['Vue.js', 'Tailwind CSS', 'Vite'],
+    demo: 'https://richmond-zedrik.com',
+    github: 'https://github.com/richmondzedrik/portfolio'
+  },
+  // Add more featured projects
+]
 
-const showScrollTop = ref(false)
+const skills = [
+  {
+    title: 'Frontend Development',
+    description: 'Creating responsive and interactive user interfaces with modern frameworks',
+    icon: 'CodeIcon'
+  },
+  {
+    title: 'Backend Development',
+    description: 'Building scalable server-side applications and APIs',
+    icon: 'ServerIcon'
+  },
+  {
+    title: 'Database Design',
+    description: 'Designing and optimizing database structures for performance',
+    icon: 'DatabaseIcon'
+  }
+]
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  })
-}
-
-// Add to existing onMounted:
-window.addEventListener('scroll', () => {
-  showScrollTop.value = window.scrollY > 500
+// Use the composable with custom meta tags for this page
+useSeo({
+  title: 'Home',
+  description: 'Welcome to my portfolio. I am a Full Stack Developer specializing in Vue.js, Node.js, and modern web technologies.',
+  url: '/'
 })
 
+// Intersection Observer for animations
 onMounted(() => {
-  // Skill bars animation
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        if (entry.target.hasAttribute('data-width')) {
-          // Handle skill bars
-          const width = entry.target.getAttribute('data-width');
-          requestAnimationFrame(() => {
-            entry.target.style.width = `${width}%`;
-          });
-        } else {
-          // Handle scroll animations
-          entry.target.classList.add('visible');
-        }
+        entry.target.classList.add('visible')
+        observer.unobserve(entry.target)
       }
-    });
-  }, { threshold: 0.2 });
+    })
+  }, { threshold: 0.2 })
 
-  // Observe skill bars
-  document.querySelectorAll('[data-width]').forEach(bar => {
-    observer.observe(bar);
-  });
+  document.querySelectorAll('.fade-in-scroll').forEach(el => observer.observe(el))
 
-  // Observe scroll animation elements
-  document.querySelectorAll('.fade-in-scroll, .slide-in-left-scroll, .slide-in-right-scroll').forEach(element => {
-    observer.observe(element);
-  });
+  onUnmounted(() => observer.disconnect())
 })
 </script>
 
 <style scoped>
-.skill-card {
-  animation: fadeInUp 0.8s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.animate-fade-up {
-  animation: enhancedFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes enhancedFadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-scale-in {
-  animation: scaleIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.animate-slide-right {
-  animation: slideInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.delay-100 {
-  animation-delay: 100ms;
-}
-
-.delay-200 {
-  animation-delay: 200ms;
-}
-
-.delay-300 {
-  animation-delay: 300ms;
-}
-
-.delay-400 {
-  animation-delay: 400ms;
-}
-
-/* Smooth hover transitions */
-.transform {
-  transition-property: transform, box-shadow;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
-
-/* Gradient text animation */
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-h1.text-transparent {
-  background-size: 200% auto;
-  animation: gradient 8s ease infinite;
-}
-
-/* Scroll animations */
 .fade-in-scroll {
   opacity: 0;
   transform: translateY(20px);
@@ -381,32 +216,5 @@ h1.text-transparent {
 .fade-in-scroll.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.slide-in-left-scroll {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.slide-in-left-scroll.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.slide-in-right-scroll {
-  opacity: 0;
-  transform: translateX(50px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.slide-in-right-scroll.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Smooth transition for scroll button */
-.fixed {
-  transition: opacity 0.3s ease-in-out;
 }
 </style>

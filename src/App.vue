@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 text-white p-4 z-50 backdrop-blur-lg border-b border-white/10">
+  <nav class="fixed top-0 left-0 right-0 bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 text-white p-4 z-50 backdrop-blur-lg border-b border-white/10 shadow-lg">
     <div class="container mx-auto flex justify-between items-center">
       <!-- Logo -->
       <div class="flex items-center">
@@ -45,33 +45,41 @@
 
       <!-- Desktop Navigation -->
       <div class="hidden md:flex space-x-6">
-        <router-link 
-          v-for="item in navItems" 
-          :key="item.id"
-          :to="item.path"
-          class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15 relative group"
-        >
-          {{ item.label }}
-          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-        </router-link>
+        <div class="flex items-center gap-4">
+          <ThemeToggle />
+          <router-link 
+            v-for="item in navItems" 
+            :key="item.id"
+            :to="item.path"
+            class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15 relative group"
+            :class="{ 'active-link': isActiveRoute(item.path) }"
+          >
+            {{ item.label }}
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+          </router-link>
+        </div>
       </div>
     </div>
 
     <!-- Mobile Navigation Menu -->
     <div 
       v-show="isMenuOpen"
-      class="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-b border-white/10"
+      class="md:hidden absolute top-full left-0 right-0 bg-gray-900/95 backdrop-blur-lg border-b border-white/10 transform transition-all duration-300"
+      :class="{'translate-y-0 opacity-100': isMenuOpen, '-translate-y-2 opacity-0': !isMenuOpen}"
     >
       <div class="container mx-auto py-4 px-4 space-y-2">
-        <router-link 
-          v-for="item in navItems" 
-          :key="item.id"
-          :to="item.path"
-          class="block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15"
-          @click="isMenuOpen = false"
-        >
-          {{ item.label }}
-        </router-link>
+        <div class="flex items-center gap-4">
+          <ThemeToggle />
+          <router-link 
+            v-for="item in navItems" 
+            :key="item.id"
+            :to="item.path"
+            class="block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-white/15"
+            @click="isMenuOpen = false"
+          >
+            {{ item.label }}
+          </router-link>
+        </div>
       </div>
     </div>
   </nav>
@@ -89,6 +97,7 @@
 <script setup>
 import { ref } from 'vue'
 import TheFooter from './components/TheFooter.vue'
+import ThemeToggle from './components/ThemeToggle.vue'
 
 const isMenuOpen = ref(false)
 
@@ -98,6 +107,7 @@ const navItems = [
   { id: 'projects', label: 'Projects', path: '/projects' },
   { id: 'services', label: 'Services', path: '/services' },
   { id: 'resume', label: 'Resume', path: '/resume' },
+  { id: 'blog', label: 'Blog', path: '/blog' },
   { id: 'contact', label: 'Contact', path: '/contact' }
 ]
 
@@ -123,21 +133,30 @@ function handleScroll() {
   const sections = document.querySelectorAll('section')
   const navLinks = document.querySelectorAll('nav a')
   
-  let current = ''
-  
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop
-    if (window.scrollY >= sectionTop - 60) {
-      current = section.getAttribute('id')
-    }
-  })
+  // Use requestAnimationFrame for smooth performance
+  requestAnimationFrame(() => {
+    const scrollPosition = window.scrollY + 100 // Offset for better detection
 
-  navLinks.forEach(link => {
-    link.classList.remove('text-blue-400', 'bg-white/10')
-    if (link.getAttribute('href').slice(1) === current) {
-      link.classList.add('text-blue-400', 'bg-white/10')
-    }
+    let current = ''
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop
+      const sectionHeight = section.offsetHeight
+      if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+        current = section.getAttribute('id')
+      }
+    })
+
+    navLinks.forEach(link => {
+      link.classList.remove('text-blue-400', 'bg-white/10')
+      if (link.getAttribute('href')?.slice(1) === current) {
+        link.classList.add('text-blue-400', 'bg-white/10')
+      }
+    })
   })
+}
+
+const isActiveRoute = (path) => {
+  return router.currentRoute.value.path === path
 }
 </script>
 
@@ -172,5 +191,39 @@ main {
 /* For IE and Edge */
 * {
   -ms-overflow-style: none;
+}
+
+/* Add smooth transitions for active links */
+.active-link {
+  @apply text-blue-400 bg-white/5; 
+}
+
+/* Add some animation classes */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Improve scrollbar styling while keeping it visible */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }
 </style>
